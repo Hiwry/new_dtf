@@ -317,7 +317,7 @@ const styles = {
     cardContainer: {
       display: 'flex',
       flexDirection: 'row' as const, // Correção aqui
-      flexWrap: 'wrap',
+      flexWrap: 'nowrap' as 'nowrap' | 'wrap' | 'wrap-reverse' | undefined,
       gap: '20px',
       justifyContent: 'space-between',
     },
