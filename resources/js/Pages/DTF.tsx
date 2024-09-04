@@ -303,134 +303,134 @@ const DTF: React.FC = () => {
 
 // Estilos CSS-in-JS para o design dos cards, layout e tabela
 const styles = {
-  container: {
-    padding: '20px',
-    maxWidth: '800px',
-    margin: '0 auto',
-  },
-  header: {
-    textAlign: 'center',
-    marginBottom: '20px',
-    fontSize: '24px',
-    color: '#333',
-  },
-  cardContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: '20px',
-    justifyContent: 'space-between',
-  },
-  card: {
-    backgroundColor: '#fff',
-    borderRadius: '8px',
-    padding: '20px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-    flex: '1 0 250px',
-    marginBottom: '20px',
-    position: 'relative',
-  },
-  cardTitle: {
-    marginBottom: '10px',
-    fontSize: '18px',
-    color: '#444',
-  },
-  inputGroup: {
-    marginBottom: '10px',
-  },
-  label: {
-    display: 'block',
-    marginBottom: '5px',
-    fontSize: '14px',
-    color: '#555',
-  },
-  input: {
-    width: '100%',
-    padding: '8px',
-    borderRadius: '4px',
-    border: '1px solid #ddd',
-    fontSize: '14px',
-  },
-  checkbox: {
-    marginLeft: '10px',
-  },
-  result: {
-    marginTop: '10px',
-    fontSize: '16px',
-    color: '#333',
-  },
-  addButton: {
-    display: 'block',
-    width: '100%',
-    padding: '10px',
-    backgroundColor: '#4CAF50',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    fontSize: '16px',
-    marginTop: '20px',
-  },
-  removeButton: {
-    padding: '8px',
-    backgroundColor: '#f44336',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    fontSize: '14px',
-    marginTop: '10px',
-  },
-  orderForm: {
-    marginTop: '30px',
-  },
-  formHeader: {
-    fontSize: '20px',
-    marginBottom: '10px',
-    color: '#333',
-  },
-  formInput: {
-    width: '100%',
-    padding: '8px',
-    marginBottom: '10px',
-    borderRadius: '4px',
-    border: '1px solid #ddd',
-    fontSize: '14px',
-  },
-  generateButton: {
-    display: 'block',
-    width: '100%',
-    padding: '10px',
-    backgroundColor: '#007BFF',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    fontSize: '16px',
-    marginTop: '10px',
-  },
-  history: {
-    marginTop: '30px',
-    padding: '20px',
-    backgroundColor: '#f8f8f8',
-    borderRadius: '8px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-  },
-  table: {
-    width: '100%',
-    borderCollapse: 'collapse',
-  },
-  th: {
-    borderBottom: '1px solid #ddd',
-    padding: '10px',
-    textAlign: 'left',
-    backgroundColor: '#f2f2f2',
-  },
-  td: {
-    padding: '10px',
-    borderBottom: '1px solid #ddd',
-    textAlign: 'left',
-  },
-};
-
+    container: {
+      padding: '20px',
+      maxWidth: '800px',
+      margin: '0 auto',
+    },
+    header: {
+      textAlign: 'left' as const, // Correção aqui
+      marginBottom: '20px',
+      fontSize: '24px',
+      color: '#333',
+    },
+    cardContainer: {
+      display: 'flex',
+      flexDirection: 'row' as const, // Correção aqui
+      flexWrap: 'wrap',
+      gap: '20px',
+      justifyContent: 'space-between',
+    },
+    card: {
+      backgroundColor: '#fff',
+      borderRadius: '8px',
+      padding: '20px',
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+      flex: '1 0 250px',
+      marginBottom: '20px',
+      position: 'relative' as const, // Correção aqui
+    },
+    cardTitle: {
+      marginBottom: '10px',
+      fontSize: '18px',
+      color: '#444',
+    },
+    inputGroup: {
+      marginBottom: '10px',
+    },
+    label: {
+      display: 'block',
+      marginBottom: '5px',
+      fontSize: '14px',
+      color: '#555',
+    },
+    input: {
+      width: '100%',
+      padding: '8px',
+      borderRadius: '4px',
+      border: '1px solid #ddd',
+      fontSize: '14px',
+    },
+    checkbox: {
+      marginLeft: '10px',
+    },
+    result: {
+      marginTop: '10px',
+      fontSize: '16px',
+      color: '#333',
+    },
+    addButton: {
+      display: 'block',
+      width: '100%',
+      padding: '10px',
+      backgroundColor: '#4CAF50',
+      color: '#fff',
+      border: 'none',
+      borderRadius: '4px',
+      cursor: 'pointer',
+      fontSize: '16px',
+      marginTop: '20px',
+    },
+    removeButton: {
+      padding: '8px',
+      backgroundColor: '#f44336',
+      color: '#fff',
+      border: 'none',
+      borderRadius: '4px',
+      cursor: 'pointer',
+      fontSize: '14px',
+      marginTop: '10px',
+    },
+    orderForm: {
+      marginTop: '30px',
+    },
+    formHeader: {
+      fontSize: '20px',
+      marginBottom: '10px',
+      color: '#333',
+    },
+    formInput: {
+      width: '100%',
+      padding: '8px',
+      marginBottom: '10px',
+      borderRadius: '4px',
+      border: '1px solid #ddd',
+      fontSize: '14px',
+    },
+    generateButton: {
+      display: 'block',
+      width: '100%',
+      padding: '10px',
+      backgroundColor: '#007BFF',
+      color: '#fff',
+      border: 'none',
+      borderRadius: '4px',
+      cursor: 'pointer',
+      fontSize: '16px',
+      marginTop: '10px',
+    },
+    history: {
+      marginTop: '30px',
+      padding: '20px',
+      backgroundColor: '#f8f8f8',
+      borderRadius: '8px',
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    },
+    table: {
+      width: '100%',
+      borderCollapse: 'collapse' as const, // Correção aqui
+    },
+    th: {
+      borderBottom: '1px solid #ddd',
+      padding: '10px',
+      textAlign: 'left',
+      backgroundColor: '#f2f2f2',
+    },
+    td: {
+      padding: '10px',
+      borderBottom: '1px solid #ddd',
+      textAlign: 'left',
+    },
+  };
+  
 export default DTF;
