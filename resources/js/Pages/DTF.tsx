@@ -55,16 +55,23 @@ const DTF: React.FC = () => {
 
   // Função para calcular o custo total
   const calculateTotal = (app: Application): Application => {
-    const effectiveWidth = app.rotation ? app.height : app.width;
-    const effectiveHeight = app.rotation ? app.width : app.height;
-    const areaPerItem = effectiveWidth * effectiveHeight;
-    const pricePerUnit = calculateUnitPrice(app.quantity);
-    const totalCost = (areaPerItem * pricePerUnit + fixedCostPerUnit) * app.quantity;
+    if (app.quantity > 0) {
+      const effectiveWidth = app.rotation ? app.height : app.width;
+      const effectiveHeight = app.rotation ? app.width : app.height;
+      const areaPerItem = effectiveWidth * effectiveHeight;
+      const pricePerUnit = calculateUnitPrice(app.quantity);
+      const totalCost = (areaPerItem * pricePerUnit + fixedCostPerUnit) * app.quantity;
 
+      return {
+        ...app,
+        unitPrice: pricePerUnit,
+        totalCost: totalCost,
+      };
+    }
     return {
       ...app,
-      unitPrice: pricePerUnit,
-      totalCost: totalCost,
+      unitPrice: 0,
+      totalCost: 0,
     };
   };
 
@@ -98,11 +105,14 @@ const DTF: React.FC = () => {
   // Função para lidar com o envio do pedido
   const handleGenerateOrder = () => {
     const totalHeight = applications.reduce((acc, app) => {
-      const effectiveWidth = app.rotation ? app.height : app.width;
-      const effectiveHeight = app.rotation ? app.width : app.height;
-      const rows = Math.ceil((effectiveWidth * app.quantity) / fixedWidth);
-      const heightNeeded = rows * effectiveHeight;
-      return acc + heightNeeded;
+      if (app.quantity > 0) {
+        const effectiveWidth = app.rotation ? app.height : app.width;
+        const effectiveHeight = app.rotation ? app.width : app.height;
+        const rows = Math.ceil((effectiveWidth * app.quantity) / fixedWidth);
+        const heightNeeded = rows * effectiveHeight;
+        return acc + heightNeeded;
+      }
+      return acc;
     }, 0);
 
     const totalCost = applications.reduce((acc, app) => acc + app.totalCost, 0);
@@ -257,6 +267,7 @@ const DTF: React.FC = () => {
                 <th>Tamanho Total (cm)</th>
                 <th>Custo Total (R$)</th>
                 <th>Usuário</th>
+                <th>Aplicações</th>
               </tr>
             </thead>
             <tbody>
@@ -269,6 +280,15 @@ const DTF: React.FC = () => {
                   <td>{order.totalHeight.toFixed(2)}</td>
                   <td>{order.totalCost.toFixed(2)}</td>
                   <td>{order.user}</td>
+                  <td>
+                    <ul>
+                      {order.items.map((item) => (
+                        <li key={item.id}>
+                          Aplicação {item.id}: Largura: {item.width} cm, Altura: {item.height} cm, Quantidade: {item.quantity}, Custo Individual: R${item.unitPrice.toFixed(3)}, Custo Total: R${item.totalCost.toFixed(2)}
+                        </li>
+                      ))}
+                    </ul>
+                  </td>
                 </tr>
               ))}
             </tbody>
